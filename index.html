@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <title>Paystack Test Tool</title>
+  </head>
+  <body>
+    <div class="w-8/12 mx-auto mt-10 flex justify-between">
+      <section class="w-8/12 pr-10">
+        <h2 class="text-3xl font-bold text-gray-700">Pay</h2>
+
+        <p id="message" class="block mt-5 text-gray-700"></p>
+        <p id="transactionReferenceText" class="block font-bold"></p>
+        <form
+          id="paymentForm"
+          class="bg-white shadow rounded px-8 pt-6 pb-8 mt-5 mb-4"
+        >
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="email"
+            >
+              Email Address
+            </label>
+            <input
+              class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="email"
+              type="email"
+              placeholder="johndoe@example.com"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="amount"
+            >
+              Amount
+            </label>
+            <input
+              class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="amount"
+              type="text"
+              placeholder="5000"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="firstname"
+            >
+              Firstname
+            </label>
+            <input
+              class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="firstname"
+              type="text"
+              placeholder="John"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="lastname"
+            >
+              Lastname
+            </label>
+            <input
+              class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="lastname"
+              type="text"
+              placeholder="Doe"
+            />
+          </div>
+
+          <div class="flex items-center justify-between">
+            <button
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="submit"
+            >
+              Pay
+            </button>
+            <a
+              class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+              href="#"
+            >
+              Fill Defaults
+            </a>
+          </div>
+        </form>
+      </section>
+
+      <!-- Config -->
+      <section class="w-3/12">
+        <h2 class="text-3xl font-bold text-gray-700">Config</h2>
+
+        <form class="bg-white pt-6 pb-8 mt-5 mb-4">
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="paystackKey"
+            >
+              Paystack Key
+            </label>
+            <input
+              class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="paystackKey"
+              type="text"
+              placeholder="pk_test_********************"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="reference"
+            >
+              Reference
+            </label>
+            <input
+              class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="reference"
+              type="text"
+              placeholder="T615026437606272"
+            />
+          </div>
+
+          <hr />
+
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="verifyEndpoint"
+            >
+              Verify Endpoint
+            </label>
+            <input
+              class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="verifyEndpoint"
+              type="text"
+              placeholder="http://localhost:8000/api/v1/payment/verify/${response.reference}"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="authToken"
+            >
+              Auth Token
+            </label>
+            <input
+              class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="authToken"
+              type="text"
+              placeholder="ejadfjk248u8ua8jfnj24u8u4ianfd"
+            />
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
