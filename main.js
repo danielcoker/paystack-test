@@ -1,3 +1,51 @@
+const addProject = (event) => {
+  event.preventDefault();
+
+  const projectForm = document.getElementById('addProjectForm');
+
+  const projectId = uuidv4();
+  const projectName = document.getElementById('projectName').value;
+  const paystackKey = document.getElementById('paystackKey').value;
+  const reference = document.getElementById('reference').value;
+  const verifyEndpoint = document.getElementById('verifyEndpoint').value;
+  const authToken = document.getElementById('authToken').value;
+
+  if (!projectName && !paystackKey) {
+    console.log('Project name and paystack key are required.');
+    return;
+  }
+
+  const project = {
+    projectId,
+    projectName,
+    paystackKey,
+    reference,
+    verifyEndpoint,
+    authToken,
+  };
+
+  // Get projects from localStorage.
+  let projects = JSON.parse(localStorage.getItem('paystack-test-projects'));
+
+  // Check if project exists in the localStorage.
+  if (projects && projects.length) {
+    // Search projects for existing project name.
+    const isProjectExists = projects.some(
+      (localProject) => localProject.projectName == project.projectName
+    );
+
+    if (!isProjectExists) {
+      projects.push(project);
+    }
+  } else {
+    projects = [project];
+  }
+
+  localStorage.setItem('paystack-test-projects', JSON.stringify(projects));
+
+  projectForm.reset();
+};
+
 /**
  * Get paystack key from localstorage or user input appropriately.
  * @returns {String} The paystack key.
@@ -90,4 +138,7 @@ const payWithPaystack = (event) => {
 
 const paymentForm = document.getElementById('paymentForm');
 
+const addProjectForm = document.getElementById('addProjectForm');
+
 paymentForm.addEventListener('submit', payWithPaystack, false);
+addProjectForm.addEventListener('submit', addProject, false);
