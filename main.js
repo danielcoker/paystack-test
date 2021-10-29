@@ -1,3 +1,8 @@
+/**
+ * Add a project to localStorage.
+ * @param {Object} event The event object.
+ * @returns {Void}
+ */
 const addProject = (event) => {
   event.preventDefault();
 
