@@ -188,10 +188,12 @@ const payWithPaystack = (event) => {
       }
 
       message.classList.remove('hidden');
-      message.innerText = 'Payment Complete!';
+      message.innerText =
+        'Payment Complete! 🚀\nReference copied to clipboard.';
 
       transactionText.classList.remove('hidden');
-      transactionText.innerText = response.reference;
+      navigator.clipboard.writeText(response.reference);
+      transactionText.innerText = `Transaction Reference: ${response.reference}`;
     },
   });
 
