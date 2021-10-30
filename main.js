@@ -130,29 +130,6 @@ const addProject = (event) => {
 };
 
 /**
- * Get paystack key from localstorage or user input appropriately.
- * @returns {String} The paystack key.
- */
-const getPaystackKey = () => {
-  let paystackKeyInput = document.getElementById('paystackKey').value;
-  let paystackKey = localStorage.getItem('paystackKey');
-
-  // If both the local paystack key and the paystack key are empty, return null.
-  if (!paystackKey && !paystackKeyInput) {
-    return null;
-  }
-
-  // If there is a paystack key input, save it to the localstorage and return it.
-  if ((!paystackKey && paystackKeyInput) || (paystackKey && paystackKeyInput)) {
-    localStorage.setItem('paystackKey', paystackKeyInput);
-
-    return paystackKeyInput;
-  }
-
-  return paystackKey;
-};
-
-/**
  * Pay with Paystack modal.
  * @param {Object} event The event object.
  * @returns {Void}
@@ -173,7 +150,7 @@ const payWithPaystack = (event) => {
   const firstname = document.getElementById('firstname').value;
   const lastname = document.getElementById('lastname').value;
 
-  const paystackKey = getPaystackKey();
+  const paystackKey = document.getElementById('paystackKey').value;
 
   const reference = document.getElementById('reference').value;
   const verifyEndpoint = document.getElementById('verifyEndpoint').value;
@@ -184,6 +161,8 @@ const payWithPaystack = (event) => {
     email,
     amount,
     ref: reference || null,
+    firstname,
+    lastname,
     onClose: () => {
       message.classList.remove('hidden');
       message.innerText = 'An error occurred. Check console.';
