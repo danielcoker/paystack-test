@@ -22,6 +22,58 @@
           id="paymentForm"
           class="bg-white shadow rounded px-8 pt-6 pb-8 mt-5 mb-4"
         >
+          <!-- Select Project -->
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="project"
+            >
+              Project
+            </label>
+            <div class="relative">
+              <select
+                class="
+                  appearance-none
+                  border
+                  rounded
+                  w-full
+                  py-2
+                  px-3
+                  text-gray-700
+                  leading-tight
+                  focus:outline-none focus:shadow-outline
+                "
+                id="projectList"
+                onchange="updateProjectForm(this)"
+              >
+                <option value="">-- Select Project --</option>
+              </select>
+              <div
+                class="
+                  pointer-events-none
+                  absolute
+                  inset-y-0
+                  right-0
+                  flex
+                  items-center
+                  px-2
+                  text-gray-700
+                "
+              >
+                <svg
+                  class="fill-current h-4 w-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Email Address -->
           <div class="mb-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-2"
@@ -30,13 +82,24 @@
               Email Address
             </label>
             <input
-              class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              class="
+                appearance-none
+                border
+                rounded
+                w-full
+                py-2
+                px-3
+                text-gray-700
+                leading-tight
+                focus:outline-none focus:shadow-outline
+              "
               id="email"
               type="email"
               placeholder="johndoe@example.com"
             />
           </div>
 
+          <!-- Amount -->
           <div class="mb-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-2"
@@ -45,13 +108,24 @@
               Amount
             </label>
             <input
-              class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              class="
+                appearance-none
+                border
+                rounded
+                w-full
+                py-2
+                px-3
+                text-gray-700
+                leading-tight
+                focus:outline-none focus:shadow-outline
+              "
               id="amount"
               type="text"
               placeholder="5000"
             />
           </div>
 
+          <!-- First Name -->
           <div class="mb-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-2"
@@ -60,13 +134,24 @@
               Firstname
             </label>
             <input
-              class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              class="
+                appearance-none
+                border
+                rounded
+                w-full
+                py-2
+                px-3
+                text-gray-700
+                leading-tight
+                focus:outline-none focus:shadow-outline
+              "
               id="firstname"
               type="text"
               placeholder="John"
             />
           </div>
 
+          <!-- Last Name -->
           <div class="mb-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-2"
@@ -75,44 +160,94 @@
               Lastname
             </label>
             <input
-              class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              class="
+                appearance-none
+                border
+                rounded
+                w-full
+                py-2
+                px-3
+                text-gray-700
+                leading-tight
+                focus:outline-none focus:shadow-outline
+              "
               id="lastname"
               type="text"
               placeholder="Doe"
             />
           </div>
 
+          <!-- Pay Button -->
           <div class="flex items-center justify-between">
             <button
-              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              class="
+                bg-blue-500
+                hover:bg-blue-700
+                text-white
+                font-bold
+                py-2
+                px-4
+                rounded
+                focus:outline-none focus:shadow-outline
+              "
               type="submit"
             >
               Pay
             </button>
-            <!-- <a
-              class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-              href="#"
-            >
-              Fill Defaults
-            </a> -->
           </div>
         </form>
       </section>
 
-      <!-- Config -->
+      <!-- Project Config -->
       <section class="w-3/12">
-        <h2 class="text-3xl font-bold text-gray-700">Config</h2>
+        <h2 class="text-3xl font-bold text-gray-700">Project Config</h2>
 
-        <form class="bg-white pt-6 pb-8 mt-5 mb-4">
+        <form id="addProjectForm" class="bg-white pt-6 pb-8 mt-5 mb-4">
+          <input type="hidden" id="projectId" />
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="projectName"
+            >
+              Project Name <span class="text-red-400 text-base">*</span>
+            </label>
+            <input
+              class="
+                appearance-none
+                border
+                rounded
+                w-full
+                py-2
+                px-3
+                text-gray-700
+                leading-tight
+                focus:outline-none focus:shadow-outline
+              "
+              id="projectName"
+              type="text"
+              placeholder="Harmony"
+            />
+          </div>
+
           <div class="mb-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-2"
               for="paystackKey"
             >
-              Paystack Key
+              Paystack Key <span class="text-red-400 text-base">*</span>
             </label>
             <input
-              class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              class="
+                appearance-none
+                border
+                rounded
+                w-full
+                py-2
+                px-3
+                text-gray-700
+                leading-tight
+                focus:outline-none focus:shadow-outline
+              "
               id="paystackKey"
               type="text"
               placeholder="pk_test_********************"
@@ -127,7 +262,17 @@
               Reference
             </label>
             <input
-              class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              class="
+                appearance-none
+                border
+                rounded
+                w-full
+                py-2
+                px-3
+                text-gray-700
+                leading-tight
+                focus:outline-none focus:shadow-outline
+              "
               id="reference"
               type="text"
               placeholder="T615026437606272"
@@ -144,7 +289,17 @@
               Verify Endpoint
             </label>
             <input
-              class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              class="
+                appearance-none
+                border
+                rounded
+                w-full
+                py-2
+                px-3
+                text-gray-700
+                leading-tight
+                focus:outline-none focus:shadow-outline
+              "
               id="verifyEndpoint"
               type="text"
               placeholder="http://localhost:8000/api/v1/payment/verify/${response.reference}"
@@ -159,18 +314,53 @@
               Auth Token
             </label>
             <input
-              class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              class="
+                appearance-none
+                border
+                rounded
+                w-full
+                py-2
+                px-3
+                text-gray-700
+                leading-tight
+                focus:outline-none focus:shadow-outline
+              "
               id="authToken"
               type="text"
               placeholder="ejadfjk248u8ua8jfnj24u8u4ianfd"
             />
           </div>
+
+          <button
+            class="
+              bg-blue-500
+              hover:bg-blue-700
+              text-white
+              font-bold
+              py-2
+              px-4
+              rounded
+              focus:outline-none focus:shadow-outline
+            "
+            type="submit"
+          >
+            Save
+          </button>
         </form>
       </section>
     </div>
 
+    <!-- Axios -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script>
+    <!-- Paystack -->
     <script src="https://js.paystack.co/v1/inline.js"></script>
+    <!-- UUID -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuidv4.min.js"
+      integrity="sha512-BCMqEPl2dokU3T/EFba7jrfL4FxgY6ryUh4rRC9feZw4yWUslZ3Uf/lPZ5/5UlEjn4prlQTRfIPYQkDrLCZJXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="./main.js"></script>
   </body>
 </html>
