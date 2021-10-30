@@ -22,6 +22,58 @@
           id="paymentForm"
           class="bg-white shadow rounded px-8 pt-6 pb-8 mt-5 mb-4"
         >
+          <!-- Select Project -->
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="project"
+            >
+              Project
+            </label>
+            <div class="relative">
+              <select
+                class="
+                  appearance-none
+                  border
+                  rounded
+                  w-full
+                  py-2
+                  px-3
+                  text-gray-700
+                  leading-tight
+                  focus:outline-none focus:shadow-outline
+                "
+                id="projectList"
+                onchange="updateProjectForm(this)"
+              >
+                <option value="">-- Select Project --</option>
+              </select>
+              <div
+                class="
+                  pointer-events-none
+                  absolute
+                  inset-y-0
+                  right-0
+                  flex
+                  items-center
+                  px-2
+                  text-gray-700
+                "
+              >
+                <svg
+                  class="fill-current h-4 w-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Email Address -->
           <div class="mb-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-2"
@@ -47,6 +99,7 @@
             />
           </div>
 
+          <!-- Amount -->
           <div class="mb-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-2"
@@ -72,6 +125,7 @@
             />
           </div>
 
+          <!-- First Name -->
           <div class="mb-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-2"
@@ -97,6 +151,7 @@
             />
           </div>
 
+          <!-- Last Name -->
           <div class="mb-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-2"
@@ -122,6 +177,7 @@
             />
           </div>
 
+          <!-- Pay Button -->
           <div class="flex items-center justify-between">
             <button
               class="
@@ -147,6 +203,7 @@
         <h2 class="text-3xl font-bold text-gray-700">Project Config</h2>
 
         <form id="addProjectForm" class="bg-white pt-6 pb-8 mt-5 mb-4">
+          <input type="hidden" id="projectId" />
           <div class="mb-4">
             <label
               class="block text-gray-700 text-sm font-bold mb-2"
@@ -287,7 +344,7 @@
             "
             type="submit"
           >
-            Add Project
+            Save
           </button>
         </form>
       </section>
