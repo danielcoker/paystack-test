@@ -34,7 +34,6 @@ function updateProjectForm(element) {
   document.getElementById('projectId').value = project.projectId;
   document.getElementById('projectName').value = project.projectName;
   document.getElementById('paystackKey').value = project.paystackKey;
-  document.getElementById('reference').value = project.reference;
   document.getElementById('verifyEndpoint').value = project.verifyEndpoint;
   document.getElementById('authToken').value = project.authToken;
 }
@@ -75,7 +74,6 @@ const addProject = (event) => {
 
   const projectName = document.getElementById('projectName').value;
   const paystackKey = document.getElementById('paystackKey').value;
-  const reference = document.getElementById('reference').value;
   const verifyEndpoint = document.getElementById('verifyEndpoint').value;
   const authToken = document.getElementById('authToken').value;
 
@@ -84,7 +82,6 @@ const addProject = (event) => {
     updateProject(projectIdHiddenInput, {
       projectName,
       paystackKey,
-      reference,
       verifyEndpoint,
       authToken,
     });
@@ -149,10 +146,10 @@ const payWithPaystack = (event) => {
   const email = document.getElementById('email').value;
   const firstname = document.getElementById('firstname').value;
   const lastname = document.getElementById('lastname').value;
+  const reference = document.getElementById('reference').value;
 
   const paystackKey = document.getElementById('paystackKey').value;
 
-  const reference = document.getElementById('reference').value;
   const verifyEndpoint = document.getElementById('verifyEndpoint').value;
   const authToken = document.getElementById('authToken').value;
 
