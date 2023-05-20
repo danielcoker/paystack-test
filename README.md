@@ -2,7 +2,7 @@
 
 ![Netlify](https://img.shields.io/netlify/1d5d84fd-c28e-4258-8254-f9e84c8a2581)
 
-Pay with the Paystack modal and get a transaction reference. A useful tool for testing Paystack integration.
+Pay with the Paystack modal and get a transaction reference. A useful tool for testing Paystack integrations.
 
 Live demo deployed [here](https://paystack-test-tool.netlify.app/). 🚀
 
